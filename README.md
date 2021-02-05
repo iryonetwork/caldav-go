@@ -5,7 +5,7 @@ This is a Go lib that aims to implement the CalDAV specification ([RFC4791]). It
 ### How to install
 
 ```
-go get github.com/samedi/caldav-go
+go get github.com/iryonetwork/caldav-go
 ```
 
 ### Dependencies
@@ -29,7 +29,7 @@ package mycaldav
 
 import (
   "net/http"
-  "github.com/samedi/caldav-go"
+  "github.com/iryonetwork/caldav-go"
 )
 
 func runServer() {
@@ -47,7 +47,7 @@ package mycaldav
 
 import (
   "net/http"
-  "github.com/samedi/caldav-go"
+  "github.com/iryonetwork/caldav-go"
 )
 
 func runServer() {
