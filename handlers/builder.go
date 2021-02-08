@@ -27,13 +27,20 @@ type handlerData struct {
 // NewHandler returns a new CalDAV request handler object based on the provided request.
 // With the returned request handler, you can call `Handle()` to handle the request.
 func NewHandler(request *http.Request) HandlerInterface {
+	return NewHandlerWithStorage(request, global.Storage)
+}
+
+// NewHandlerWithStorage returns a new CalDAV request handler object based on the provided request.
+// With the returned request handler, you can call `Handle()` to handle the request.
+// Unlike NewHandler this function accepts an external storage and does not user the globally set storage.
+func NewHandlerWithStorage(request *http.Request, storage data.Storage) HandlerInterface {
 	hData := handlerData{
 		request:     request,
 		requestBody: readRequestBody(request),
 		requestPath: request.URL.Path,
 		headers:     headers{request.Header},
 		response:    NewResponse(),
-		storage:     global.Storage,
+		storage:     storage,
 	}
 
 	switch request.Method {
